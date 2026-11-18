@@ -22,5 +22,9 @@ file(GLOB_RECURSE SRC_FEM fem/*.cpp fem/*.hpp)
 add_library(fem ${SRC_FEM})
 deal_ii_setup_target(fem)
 
+file(GLOB_RECURSE SRC_YAML_PARSER yamlParser/*.cpp yamlParser/*.hpp)
+add_library(yamlParser ${SRC_YAML_PARSER})
+target_link_libraries(yamlParser PRIVATE yaml-cpp)
+
 add_executable(main main.cpp)
-target_link_libraries(main flatset filesystem fem)
+target_link_libraries(main flatset filesystem fem yamlParser)
