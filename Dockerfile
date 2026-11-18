@@ -1,7 +1,7 @@
 FROM ubuntu:24.04
 
 RUN apt-get update \
-    && apt-get install -y fish g++ make cmake \
+    && apt-get install -y fish g++ make cmake libboost-all-dev \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
